@@ -1,0 +1,34 @@
+tipo(ámbito) : descripción breve
+
+La Estructura del Formato
+* tipo (Obligatorio): Indica qué estás haciendo en el código (más abajo te dejo la lista completa).
+* (ámbito) (Opcional): Va entre paréntesis e indica en qué parte del proyecto estás trabajando (ej. frontend, auth, database).
+* :  (Obligatorio): Unos dos puntos seguidos de un espacio. ¡No olvides el espacio! Si no lo pones, Commitlint te dará error.
+* descripción (Obligatorio): Una frase corta en minúsculas y en tiempo presente que explique el cambio. No debe llevar punto final.
+
+
+Tipos Permitidos
+- feat: Nueva funcionalidad para el sistema (ej: agregar el formulario de registro).
+- fix: Corrección de un error o bug.
+- chore: Tareas de mantenimiento, actualización de dependencias o configuraciones del proyecto.
+- docs: Cambios solo en la documentación (como el README o manuales).
+- refactor: Cambios en el código que no añaden funciones ni arreglan bugs, sino que mejoran la estructura.
+- perf: Cambios de código que mejoran el rendimiento o la velocidad.
+- test: Añadir o corregir pruebas unitarias.
+
+
+Si creas una pantalla o endpoint:
+git commit -m "feat(auth): add jwt login structure"
+
+Si corriges un error en la base de datos:
+git commit -m "fix(database): correct event model query validation"
+
+Si actualizas configuraciones
+git commit -m "chore: configure husky and commitlint rules"
+
+Si mejoras el diseño o estilos:
+git commit -m "feat(ui): update color theme on main dashboard"
+
+
+Si intentas hacer un commit con un mensaje simple como git commit -m "cambios listo", 
+Commitlint bloqueará el commit de inmediato  y te dirá que el tipo no es válido.
