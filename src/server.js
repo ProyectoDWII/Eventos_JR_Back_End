@@ -1,16 +1,19 @@
-// Importar dependencias
-const express = require('express');
-const connectDB = require('./config/database');
 require('dotenv').config();
-
-// Inicializar Express
 const app = require('./app');
+const connectDB = require('./config/database');
 
-// Conectar BD
+const PORT = process.env.PORT || 3000;
+
+// Logs de depuración
+console.log('🔍 VARIABLES DE ENTORNO:');
+console.log('  PORT:', process.env.PORT || '3000 (default)');
+console.log('  MONGODB_URI:', process.env.MONGODB_URI ? 'Definido' : 'NO DEFINIDO');
+console.log('  JWT_SECRET:', process.env.JWT_SECRET ? 'Definido' : 'NO DEFINIDO');
+console.log('  JWT_EXPIRES_IN:', process.env.JWT_EXPIRES_IN || '7d (default)');
+console.log('---------------------------');
+
 connectDB();
 
-// Iniciar servidor
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`✅ Servidor corriendo en puerto ${PORT}`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

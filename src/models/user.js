@@ -1,14 +1,8 @@
-/**
- * @file user.js
- * @description Modelo de Mongoose para la entidad de Usuario (UserModel).
- */
-
+// src/models/user.js
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
-/**
- * Esquema de Mongoose para el Usuario
- */
+/* Esquema de Mongoose para el Usuario */
 const UserSchema = new mongoose.Schema(
   {
     name: {
@@ -56,27 +50,23 @@ const UserSchema = new mongoose.Schema(
   },
 );
 
-/**
- * Middleware pre-save de Mongoose para encriptar contraseñas
- */
-UserSchema.pre("save", async function (next) {
+/* Middleware pre-save de Mongoose para encriptar contraseñas - CORREGIDO */
+UserSchema.pre("save", async function () {
+  // Solo hashear si la contraseña fue modificada o es nueva
   if (!this.isModified("password")) {
-    return next();
+    return; // Salir sin hashear
   }
+  
   try {
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
-    next();
   } catch (error) {
-    next(error);
+    // Lanzar el error para que Mongoose lo maneje
+    throw error;
   }
 });
 
-/**
- * Compara una contraseña ingresada con la almacenada encriptada en la BD.
- * @param {string} enteredPassword - La contraseña proporcionada por el usuario
- * @returns {Promise<boolean>} True si coinciden, False de lo contrario
- */
+/* Compara una contraseña ingresada con la almacenada encriptada en la BD */
 UserSchema.methods.comparePassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };

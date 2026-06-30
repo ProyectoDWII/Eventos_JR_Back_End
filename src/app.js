@@ -1,18 +1,16 @@
 const express = require('express');
+const cors = require('cors'); 
+const authRoutes = require('./routes/authRoutes');
+const errorMiddleware = require('./middleware/errorMiddleware');
 
 const app = express();
-
-// Middleware
+app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Rutas (las irás agregando después)
-// app.use('/api/auth', require('./routes/authRoutes'));
-// app.use('/api/users', require('./routes/userRoutes'));
+// Rutas de autenticación (públicas)
+app.use('/api/auth', authRoutes);
 
-// Manejo de errores
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ error: 'Error interno del servidor' });
-});
+app.use(errorMiddleware);
 
 module.exports = app;
