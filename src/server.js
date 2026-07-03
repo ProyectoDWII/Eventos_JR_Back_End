@@ -4,8 +4,6 @@ const connectDB = require('./config/database');
 
 const PORT = process.env.PORT || 3000;
 
-// Logs de depuración
-console.log('🔍 VARIABLES DE ENTORNO:');
 console.log('  PORT:', process.env.PORT || '3000 (default)');
 console.log('  MONGODB_URI:', process.env.MONGODB_URI ? 'Definido' : 'NO DEFINIDO');
 console.log('  JWT_SECRET:', process.env.JWT_SECRET ? 'Definido' : 'NO DEFINIDO');

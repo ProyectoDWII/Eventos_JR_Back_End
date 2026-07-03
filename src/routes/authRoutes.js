@@ -13,10 +13,8 @@ router.post(
     body('email').isEmail().withMessage('Email inválido'),
     body('password').isLength({ min: 6 }).withMessage('La contraseña debe tener al menos 6 caracteres'),
     body('name').notEmpty().withMessage('El nombre es obligatorio'),
-    // role es opcional, por defecto 'client'
   ],
   async (req, res) => {
-    // Validar errores
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -25,25 +23,29 @@ router.post(
     try {
       const { email, password, name, role } = req.body;
 
-      // Verificar si el usuario ya existe
+      console.log('📝 ===== REGISTRO =====');
+      console.log('📧 Email:', email);
+      console.log('👤 Name:', name);
+      console.log('🎭 Role:', role || 'client');
+
       const existingUser = await User.findOne({ email });
       if (existingUser) {
+        console.log('❌ Email ya registrado');
         return res.status(400).json({ message: 'El email ya está registrado' });
       }
 
-      // Hashear contraseña
-      const hashedPassword = await bcrypt.hash(password, 10);
-
-      // Crear usuario
       const newUser = await User.create({
         email,
-        password: hashedPassword,
+        password, 
         name,
-        role: role || 'client', // por defecto 'client'
-        status: 'active', // asumiendo que tienes estado
+        role: role || 'client',
+        status: 'active',
       });
 
-      // Generar token
+      console.log('✅ Usuario creado con ID:', newUser._id);
+      console.log('📧 Email guardado:', newUser.email);
+      console.log('========================');
+
       const token = generateToken({
         id: newUser._id,
         email: newUser.email,
@@ -61,8 +63,11 @@ router.post(
         },
       });
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Error en el servidor' });
+      console.error('❌ Error en registro:', error);
+      res.status(500).json({ 
+        message: 'Error en el servidor',
+        error: error.message 
+      });
     }
   }
 );
@@ -83,24 +88,22 @@ router.post(
     try {
       const { email, password } = req.body;
 
-      // Buscar usuario por email
-      const user = await User.findOne({ email });
+      const user = await User.findOne({ email }).select('+password');
+      
       if (!user) {
         return res.status(401).json({ message: 'Credenciales inválidas' });
       }
 
-      // Verificar si el usuario está activo (opcional)
       if (user.status !== 'active') {
         return res.status(403).json({ message: 'Cuenta desactivada' });
       }
 
-      // Comparar contraseña
-      const isMatch = await bcrypt.compare(password, user.password);
+      const isMatch = await user.comparePassword(password);
+      
       if (!isMatch) {
         return res.status(401).json({ message: 'Credenciales inválidas' });
       }
 
-      // Generar token
       const token = generateToken({
         id: user._id,
         email: user.email,
@@ -118,7 +121,7 @@ router.post(
         },
       });
     } catch (error) {
-      console.error(error);
+      console.error('❌ Error en login:', error);
       res.status(500).json({ message: 'Error en el servidor' });
     }
   }
