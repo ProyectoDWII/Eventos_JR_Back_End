@@ -1,8 +1,6 @@
-// src/models/user.js
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
-/* Esquema de Mongoose para el Usuario */
 const UserSchema = new mongoose.Schema(
   {
     name: {
@@ -25,7 +23,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: [true, "La contraseña es obligatoria"],
       minlength: [6, "La contraseña debe tener al menos 6 caracteres"],
-      select: false, // Oculta la contraseña por defecto en las consultas
+      select: false, 
     },
     role: {
       type: String,
@@ -44,31 +42,54 @@ const UserSchema = new mongoose.Schema(
       enum: ["active", "inactive"],
       default: "active",
     },
+    deletedAt: {
+      type: Date,
+      default: null,
+    },
   },
   {
-    timestamps: true, // Agrega automáticamente createdAt y updatedAt
-  },
+    timestamps: true,
+  }
 );
 
-/* Middleware pre-save de Mongoose para encriptar contraseñas - CORREGIDO */
 UserSchema.pre("save", async function () {
-  // Solo hashear si la contraseña fue modificada o es nueva
   if (!this.isModified("password")) {
-    return; // Salir sin hashear
+    return;
   }
   
   try {
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
   } catch (error) {
-    // Lanzar el error para que Mongoose lo maneje
     throw error;
   }
 });
 
-/* Compara una contraseña ingresada con la almacenada encriptada en la BD */
+UserSchema.pre(/^find/, function () {
+  if (!this._mongooseOptions?.includeDeleted) {
+    this.where({ deletedAt: null });
+  }
+});
+
 UserSchema.methods.comparePassword = async function (enteredPassword) {
+  if (!enteredPassword || !this.password) {
+    return false;
+  }
   return await bcrypt.compare(enteredPassword, this.password);
+};
+
+UserSchema.methods.softDelete = async function () {
+  this.deletedAt = new Date();
+  this.status = 'inactive';
+  await this.save();
+  return this;
+};
+
+UserSchema.methods.restore = async function () {
+  this.deletedAt = null;
+  this.status = 'active';
+  await this.save();
+  return this;
 };
 
 const UserModel = mongoose.model("User", UserSchema);
