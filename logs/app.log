@@ -1,0 +1,40 @@
+{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-07 16:56:24"}
+{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-07 16:56:24","type":"LIFECYCLE"}
+{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-07 16:56:24"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/login","timestamp":"2026-07-07 16:58:21"}
+{"action":"LOGIN_SUCCESS","detail":"","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"auth","resourceId":"N/A","result":"SUCCESS","role":"client","timestamp":"2026-07-07 16:58:22","type":"AUDIT","userId":"6a46f496b4f9e866b157a2be"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/login","timestamp":"2026-07-07 17:00:49"}
+{"action":"LOGIN_FAILED","detail":"Contraseña incorrecta","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"auth","resourceId":"N/A","result":"DENIED","role":"client","timestamp":"2026-07-07 17:00:50","type":"AUDIT","userId":"6a46f496b4f9e866b157a2be"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/login","timestamp":"2026-07-07 17:00:51"}
+{"action":"LOGIN_FAILED","detail":"Contraseña incorrecta","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"auth","resourceId":"N/A","result":"DENIED","role":"client","timestamp":"2026-07-07 17:00:52","type":"AUDIT","userId":"6a46f496b4f9e866b157a2be"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/login","timestamp":"2026-07-07 17:00:53"}
+{"action":"LOGIN_FAILED","detail":"Contraseña incorrecta","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"auth","resourceId":"N/A","result":"DENIED","role":"client","timestamp":"2026-07-07 17:00:53","type":"AUDIT","userId":"6a46f496b4f9e866b157a2be"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/login","timestamp":"2026-07-07 17:00:55"}
+{"action":"LOGIN_FAILED","detail":"Contraseña incorrecta","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"auth","resourceId":"N/A","result":"DENIED","role":"client","timestamp":"2026-07-07 17:00:55","type":"AUDIT","userId":"6a46f496b4f9e866b157a2be"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/login","timestamp":"2026-07-07 17:00:57"}
+{"action":"LOGIN_FAILED","detail":"Contraseña incorrecta","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"auth","resourceId":"N/A","result":"DENIED","role":"client","timestamp":"2026-07-07 17:00:57","type":"AUDIT","userId":"6a46f496b4f9e866b157a2be"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/login","timestamp":"2026-07-07 17:00:58"}
+{"action":"LOGIN_FAILED","detail":"Contraseña incorrecta","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"auth","resourceId":"N/A","result":"DENIED","role":"client","timestamp":"2026-07-07 17:00:59","type":"AUDIT","userId":"6a46f496b4f9e866b157a2be"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/login","timestamp":"2026-07-07 17:01:00"}
+{"action":"LOGIN_FAILED","detail":"Contraseña incorrecta","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"auth","resourceId":"N/A","result":"DENIED","role":"client","timestamp":"2026-07-07 17:01:00","type":"AUDIT","userId":"6a46f496b4f9e866b157a2be"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/login","timestamp":"2026-07-07 17:01:02"}
+{"action":"LOGIN_FAILED","detail":"Contraseña incorrecta","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"auth","resourceId":"N/A","result":"DENIED","role":"client","timestamp":"2026-07-07 17:01:02","type":"AUDIT","userId":"6a46f496b4f9e866b157a2be"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/login","timestamp":"2026-07-07 17:01:04"}
+{"action":"LOGIN_FAILED","detail":"Contraseña incorrecta","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"auth","resourceId":"N/A","result":"DENIED","role":"client","timestamp":"2026-07-07 17:01:04","type":"AUDIT","userId":"6a46f496b4f9e866b157a2be"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/login","timestamp":"2026-07-07 17:01:05"}
+{"ip":"::1","level":"warn","message":"RATE_LIMIT_EXCEEDED","method":"POST","path":"/login","timestamp":"2026-07-07 17:01:05","type":"SECURITY","userAgent":"PostmanRuntime/7.54.0"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/login","timestamp":"2026-07-07 17:01:07"}
+{"ip":"::1","level":"warn","message":"RATE_LIMIT_EXCEEDED","method":"POST","path":"/login","timestamp":"2026-07-07 17:01:07","type":"SECURITY","userAgent":"PostmanRuntime/7.54.0"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"GET","path":"/api/arco/acceso","timestamp":"2026-07-07 17:10:20"}
+{"action":"ARCO_ACCESS","detail":"El usuario ejerció su derecho de Acceso a sus datos personales","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"users","resourceId":"6a46f404c33038543b73279b","result":"SUCCESS","role":"admin","timestamp":"2026-07-07 17:10:21","type":"AUDIT","userId":"6a46f404c33038543b73279b"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"PATCH","path":"/api/arco/oposicion","timestamp":"2026-07-07 17:11:37"}
+{"action":"ARCO_OPPOSITION","detail":"El usuario ejerció su derecho de Oposición para: marketing","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"users","resourceId":"6a46f404c33038543b73279b","result":"SUCCESS","role":"admin","timestamp":"2026-07-07 17:11:38","type":"AUDIT","userId":"6a46f404c33038543b73279b"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"DELETE","path":"/api/arco/cancelacion","timestamp":"2026-07-07 17:12:08"}
+{"action":"ARCO_CANCEL","detail":"El usuario ejerció su derecho de Cancelación. Datos bloqueados. Anonimización en 30 días.","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"users","resourceId":"6a46f404c33038543b73279b","result":"SUCCESS","role":"admin","timestamp":"2026-07-07 17:12:08","type":"AUDIT","userId":"6a46f404c33038543b73279b"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/login","timestamp":"2026-07-07 17:13:03"}
+{"ip":"::1","level":"warn","message":"RATE_LIMIT_EXCEEDED","method":"POST","path":"/login","timestamp":"2026-07-07 17:13:03","type":"SECURITY","userAgent":"PostmanRuntime/7.54.0"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/login","timestamp":"2026-07-07 17:13:17"}
+{"ip":"::1","level":"warn","message":"RATE_LIMIT_EXCEEDED","method":"POST","path":"/login","timestamp":"2026-07-07 17:13:17","type":"SECURITY","userAgent":"PostmanRuntime/7.54.0"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/login","timestamp":"2026-07-07 17:14:14"}
+{"action":"LOGIN_SUCCESS","detail":"","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"auth","resourceId":"N/A","result":"SUCCESS","role":"client","timestamp":"2026-07-07 17:14:15","type":"AUDIT","userId":"6a4706f172a765cba11495d8"}
+{"error":"Unexpected token '6', \"6a46f404c3\"... is not valid JSON","level":"error","message":"GLOBAL_ERROR","method":"GET","path":"/api/admin/users/6a46f404c33038543b73279b","timestamp":"2026-07-07 17:17:09"}
