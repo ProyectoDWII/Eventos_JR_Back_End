@@ -46,6 +46,17 @@ const UserSchema = new mongoose.Schema(
       type: Date,
       default: null,
     },
+    // Campo para el derecho de Oposición (ARCO)
+    // Registra el consentimiento del usuario por finalidad de tratamiento
+    dataConsent: {
+      type: Map,
+      of: Boolean,
+      default: {
+        marketing:  true,
+        analytics:  true,
+        thirdParty: true,
+      },
+    },
   },
   {
     timestamps: true,

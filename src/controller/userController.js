@@ -1,15 +1,25 @@
 const User = require('../models/user');
+const { auditLog } = require('../utils/logger');
 
 exports.getAllUsers = async (req, res) => {
   try {
     const users = await User.find({ deletedAt: null }).select('-password');
+
+    auditLog({
+      userId:   req.user.id,
+      role:     req.user.role,
+      action:   'READ_ALL',
+      resource: 'users',
+      ip:       req.ip,
+      result:   'SUCCESS',
+    });
+
     res.status(200).json({
       success: true,
       count: users.length,
       data: users
     });
   } catch (error) {
-    console.error('Error al obtener usuarios:', error);
     res.status(500).json({
       success: false,
       message: 'Error al obtener usuarios',
@@ -32,12 +42,21 @@ exports.getUserById = async (req, res) => {
       });
     }
 
+    auditLog({
+      userId:     req.user.id,
+      role:       req.user.role,
+      action:     'READ_ONE',
+      resource:   'users',
+      resourceId: req.params.id,
+      ip:         req.ip,
+      result:     'SUCCESS',
+    });
+
     res.status(200).json({
       success: true,
       data: user
     });
   } catch (error) {
-    console.error('Error al obtener usuario:', error);
     res.status(500).json({
       success: false,
       message: 'Error al obtener usuario',
@@ -84,13 +103,22 @@ exports.updateUser = async (req, res) => {
       { new: true, runValidators: true }
     ).select('-password');
 
+    auditLog({
+      userId:     req.user.id,
+      role:       req.user.role,
+      action:     'UPDATE',
+      resource:   'users',
+      resourceId: userId,
+      ip:         req.ip,
+      result:     'SUCCESS',
+    });
+
     res.status(200).json({
       success: true,
       message: 'Usuario actualizado exitosamente',
       data: updatedUser
     });
   } catch (error) {
-    console.error('Error al actualizar usuario:', error);
     res.status(500).json({
       success: false,
       message: 'Error al actualizar usuario',
@@ -176,17 +204,26 @@ exports.deleteUser = async (req, res) => {
     user.status = 'inactive';
     await user.save();
 
+    auditLog({
+      userId:     req.user.id,
+      role:       req.user.role,
+      action:     'SOFT_DELETE',
+      resource:   'users',
+      resourceId: userId,
+      ip:         req.ip,
+      result:     'SUCCESS',
+      detail:     'Soft delete por admin. Anonimización programada en 30 días.',
+    });
+
     res.status(200).json({
       success: true,
       message: 'Usuario eliminado exitosamente',
       data: {
         id: user._id,
-        name: user.name,
         deletedAt: user.deletedAt
       }
     });
   } catch (error) {
-    console.error('Error al eliminar usuario:', error);
     res.status(500).json({
       success: false,
       message: 'Error al eliminar usuario',
