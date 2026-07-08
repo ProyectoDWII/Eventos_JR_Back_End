@@ -23,6 +23,7 @@ router.post(
     try {
       const { email, password, name, role, phoneNumber } = req.body;
 
+
       const existingUser = await User.findOne({ email });
       if (existingUser) {
         return res.status(400).json({ message: 'El email ya está registrado' });
