@@ -1,13 +1,4 @@
-/**
- * @file package.js
- * @description Modelo de Mongoose para la entidad de Paquete (PaqueteModel).
- */
-
 const mongoose = require('mongoose');
-
-/**
- * Esquema de Mongoose para el Paquete
- */
 const PackageSchema = new mongoose.Schema(
   {
     name: {

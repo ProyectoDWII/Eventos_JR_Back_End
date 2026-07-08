@@ -1,6 +1,5 @@
 const Joi = require('joi');
 
-/* Esquema de validación para crear una solicitud de evento*/
 const createRequestSchema = Joi.object({
   client: Joi.string().required(),
   eventType: Joi.string().required(),
@@ -12,7 +11,6 @@ const createRequestSchema = Joi.object({
   notes: Joi.string().allow('').optional(),
 });
 
-/* Esquema de validación para actualizar una solicitud de evento*/
 const updateRequestSchema = Joi.object({
   client: Joi.string().optional(),
   eventType: Joi.string().optional(),

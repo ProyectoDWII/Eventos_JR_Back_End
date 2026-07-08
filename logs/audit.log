@@ -20,3 +20,4 @@
 {"ip":"::1","level":"warn","message":"RATE_LIMIT_EXCEEDED","method":"POST","path":"/login","timestamp":"2026-07-07 17:13:17","type":"SECURITY","userAgent":"PostmanRuntime/7.54.0"}
 {"action":"LOGIN_SUCCESS","detail":"","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"auth","resourceId":"N/A","result":"SUCCESS","role":"client","timestamp":"2026-07-07 17:14:15","type":"AUDIT","userId":"6a4706f172a765cba11495d8"}
 {"error":"Unexpected token '6', \"6a46f404c3\"... is not valid JSON","level":"error","message":"GLOBAL_ERROR","method":"GET","path":"/api/admin/users/6a46f404c33038543b73279b","timestamp":"2026-07-07 17:17:09"}
+

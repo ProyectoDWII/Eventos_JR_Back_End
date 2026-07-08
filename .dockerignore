@@ -1,0 +1,27 @@
+# Dependencias (se reinstalan dentro del contenedor con npm ci)
+node_modules/
+
+# Variables de entorno con secretos reales
+.env
+
+# Archivos de log generados en tiempo de ejecución
+logs/
+
+# Control de versiones
+.git/
+.gitignore
+
+# Archivos de desarrollo y configuración local
+.eslintrc.js
+.prettierrc
+nodemon.json
+
+# Tests
+tests/
+
+# Documentación y notas
+*.md
+notas.md
+
+# Scripts de migración (no deben ejecutarse en producción automáticamente)
+scripts/
