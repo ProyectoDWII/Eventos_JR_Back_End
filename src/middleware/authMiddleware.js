@@ -2,13 +2,13 @@ const { verifyToken } = require('../service/tokenService');
 
 const authMiddleware = async (req, res, next) => {
   try {
-    // 1. Obtener el token del header
-    const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    // 1. Obtener el token de las cookies o del header Authorization (para Postman)
+    const token = req.cookies?.token || 
+                  (req.headers.authorization && req.headers.authorization.startsWith('Bearer ') && req.headers.authorization.split(' ')[1]);
+
+    if (!token) {
       return res.status(401).json({ message: 'No se proporcionó token de autenticación' });
     }
-
-    const token = authHeader.split(' ')[1];
 
     // 2. Verificar token
     const decoded = verifyToken(token);

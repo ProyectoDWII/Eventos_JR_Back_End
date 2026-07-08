@@ -52,6 +52,13 @@ router.post(
         role:  newUser.role,
       });
 
+      res.cookie('token', token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+        maxAge: 7 * 24 * 60 * 60 * 1000 // 7 días
+      });
+
       res.status(201).json({
         message: 'Usuario registrado exitosamente',
         token,
@@ -125,6 +132,13 @@ router.post(
         role:  user.role,
       });
 
+      res.cookie('token', token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+        maxAge: 7 * 24 * 60 * 60 * 1000 // 7 días
+      });
+
       res.status(200).json({
         message: 'Login exitoso',
         token,
@@ -141,5 +155,15 @@ router.post(
     }
   }
 );
+
+//! Logout
+router.post('/logout', (req, res) => {
+  res.clearCookie('token', {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'strict'
+  });
+  res.status(200).json({ message: 'Sesión cerrada exitosamente' });
+});
 
 module.exports = router;
