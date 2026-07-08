@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.use((req, res, next) => {
-  console.log('📱 Ruta de cliente accedida por:', req.user?.email);
+  console.log('Ruta de cliente accedida por:', req.user?.email);
   next();
 });
 

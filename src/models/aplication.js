@@ -1,14 +1,4 @@
-/**
- * @file aplication.js
- * @description Modelo de Mongoose para la entidad de Solicitud de Evento (SolicitudModel).
- * Nota: El nombre del archivo se mantiene como "aplication.js" por compatibilidad de estructura.
- */
-
 const mongoose = require('mongoose');
-
-/**
- * Esquema de Mongoose para la Solicitud
- */
 const SolicitudSchema = new mongoose.Schema(
   {
     client: {

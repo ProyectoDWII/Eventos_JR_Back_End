@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const fieldEncryption = require("mongoose-field-encryption").fieldEncryption;
 
 const UserSchema = new mongoose.Schema(
   {
@@ -46,8 +47,6 @@ const UserSchema = new mongoose.Schema(
       type: Date,
       default: null,
     },
-    // Campo para el derecho de Oposición (ARCO)
-    // Registra el consentimiento del usuario por finalidad de tratamiento
     dataConsent: {
       type: Map,
       of: Boolean,
@@ -62,6 +61,12 @@ const UserSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+UserSchema.plugin(fieldEncryption, {
+  fields:  ['phoneNumber'],
+  secret:  process.env.FIELD_ENCRYPTION_KEY,
+  saltGenerator: (secret) => secret.slice(0, 16), 
+});
 
 UserSchema.pre("save", async function () {
   if (!this.isModified("password")) {

@@ -21,7 +21,8 @@ router.post(
     }
 
     try {
-      const { email, password, name, role } = req.body;
+      const { email, password, name, role, phoneNumber } = req.body;
+
 
       const existingUser = await User.findOne({ email });
       if (existingUser) {
@@ -34,6 +35,7 @@ router.post(
         name,
         role: role || 'client',
         status: 'active',
+        phoneNumber: phoneNumber || null,
       });
 
       auditLog({
@@ -52,16 +54,12 @@ router.post(
         role:  newUser.role,
       });
 
-      res.cookie('token', token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'strict',
-        maxAge: 7 * 24 * 60 * 60 * 1000 // 7 días
+
       });
 
       res.status(201).json({
         message: 'Usuario registrado exitosamente',
-        token,
+        token, // Mantenemos el token en la respuesta para compatibilidad con Postman
         user: {
           id:    newUser._id,
           email: newUser.email,
@@ -132,16 +130,12 @@ router.post(
         role:  user.role,
       });
 
-      res.cookie('token', token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'strict',
-        maxAge: 7 * 24 * 60 * 60 * 1000 // 7 días
+
       });
 
       res.status(200).json({
         message: 'Login exitoso',
-        token,
+        token, // Mantenemos el token en la respuesta para compatibilidad con Postman
         user: {
           id:    user._id,
           email: user.email,
@@ -157,12 +151,7 @@ router.post(
 );
 
 //! Logout
-router.post('/logout', (req, res) => {
-  res.clearCookie('token', {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict'
-  });
+
   res.status(200).json({ message: 'Sesión cerrada exitosamente' });
 });
 

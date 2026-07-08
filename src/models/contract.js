@@ -1,20 +1,11 @@
-/**
- * @file contract.js
- * @description Modelo de Mongoose para la entidad de Contrato (ContratoModel).
- */
-
 const mongoose = require('mongoose');
-
-/**
- * Esquema de Mongoose para el Contrato
- */
 const ContractSchema = new mongoose.Schema(
   {
     solicitud: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Solicitud',
       required: [true, 'La solicitud asociada al contrato es obligatoria'],
-      unique: true, // Cada solicitud solo puede tener un contrato
+      unique: true,
     },
     client: {
       type: mongoose.Schema.Types.ObjectId,
