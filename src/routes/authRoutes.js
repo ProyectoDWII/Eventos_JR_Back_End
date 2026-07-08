@@ -21,7 +21,7 @@ router.post(
     }
 
     try {
-      const { email, password, name, role } = req.body;
+      const { email, password, name, role, phoneNumber } = req.body;
 
       const existingUser = await User.findOne({ email });
       if (existingUser) {
@@ -34,6 +34,7 @@ router.post(
         name,
         role: role || 'client',
         status: 'active',
+        phoneNumber: phoneNumber || null,
       });
 
       auditLog({

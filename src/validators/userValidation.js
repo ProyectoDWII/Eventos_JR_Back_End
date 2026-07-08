@@ -1,6 +1,5 @@
 const Joi = require('joi');
 
-/* Esquema de validación para crear un usuario*/
 const createUserSchema = Joi.object({
   name: Joi.string().required(),
   email: Joi.string().email().required(),
@@ -10,7 +9,6 @@ const createUserSchema = Joi.object({
   status: Joi.string().valid('active', 'inactive').default('active'),
 });
 
-/* Esquema de validación para actualizar un usuario*/
 const updateUserSchema = Joi.object({
   name: Joi.string().optional(),
   email: Joi.string().email().optional(),

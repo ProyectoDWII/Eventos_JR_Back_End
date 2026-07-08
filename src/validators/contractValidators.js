@@ -1,13 +1,4 @@
-/**
- * @file contractValidators.js
- * @description Esquemas de validación básica para la entidad de Contrato (Contract).
- */
-
 const Joi = require('joi');
-
-/**
- * Esquema de validación para crear un contrato
- */
 const createContractSchema = Joi.object({
   solicitud: Joi.string().required(),
   client: Joi.string().required(),
@@ -19,7 +10,6 @@ const createContractSchema = Joi.object({
   signedAt: Joi.date().allow(null).optional(),
 });
 
-/* Esquema de validación para actualizar un contrato*/
 const updateContractSchema = Joi.object({
   solicitud: Joi.string().optional(),
   client: Joi.string().optional(),

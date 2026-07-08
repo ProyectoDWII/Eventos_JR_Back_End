@@ -1,13 +1,4 @@
-/**
- * @file service.js
- * @description Modelo de Mongoose para la entidad de Servicio (ServicioModel).
- */
-
 const mongoose = require('mongoose');
-
-/**
- * Esquema de Mongoose para el Servicio
- */
 const ServiceSchema = new mongoose.Schema(
   {
     name: {
