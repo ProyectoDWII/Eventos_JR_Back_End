@@ -1,6 +1,7 @@
 require('dotenv').config();
-const express = require('express');
-const cors    = require('cors');
+const express      = require('express');
+const cors         = require('cors');
+const cookieParser = require('cookie-parser');
 
 const authRoutes  = require('./routes/authRoutes');
 const clientRoutes = require('./routes/clientRoutes');
@@ -20,7 +21,18 @@ const app = express();
 // Rate limiting general para toda la API (protege contra scraping masivo)
 app.use('/api/', apiLimiter);
 
-app.use(cors());
+// CORS: permite cookies desde el frontend (credentials: true es obligatorio para HttpOnly cookies)
+app.use(cors({
+  origin: [
+    'http://localhost:5173',   // Vite dev server
+    'http://127.0.0.1:5173',
+    'http://localhost:3000',
+  ],
+  credentials: true, // Permite el envío de cookies en las peticiones cross-origin
+}));
+
+// Cookie parser: necesario para leer req.cookies en el authMiddleware
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
