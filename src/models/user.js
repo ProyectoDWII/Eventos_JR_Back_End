@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const fieldEncryption = require("mongoose-field-encryption").fieldEncryption;
 
 const UserSchema = new mongoose.Schema(
   {
@@ -46,11 +47,26 @@ const UserSchema = new mongoose.Schema(
       type: Date,
       default: null,
     },
+    dataConsent: {
+      type: Map,
+      of: Boolean,
+      default: {
+        marketing:  true,
+        analytics:  true,
+        thirdParty: true,
+      },
+    },
   },
   {
     timestamps: true,
   }
 );
+
+UserSchema.plugin(fieldEncryption, {
+  fields:  ['phoneNumber'],
+  secret:  process.env.FIELD_ENCRYPTION_KEY,
+  saltGenerator: (secret) => secret.slice(0, 16), 
+});
 
 UserSchema.pre("save", async function () {
   if (!this.isModified("password")) {

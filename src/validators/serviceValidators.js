@@ -1,6 +1,5 @@
 const Joi = require('joi');
 
-/* Esquema de validación para crear un servicio*/
 const createServiceSchema = Joi.object({
   name: Joi.string().required(),
   description: Joi.string().required(),
@@ -9,7 +8,6 @@ const createServiceSchema = Joi.object({
   status: Joi.string().valid('active', 'inactive').default('active'),
 });
 
-/* Esquema de validación para actualizar un servicio*/
 const updateServiceSchema = Joi.object({
   name: Joi.string().optional(),
   description: Joi.string().optional(),
