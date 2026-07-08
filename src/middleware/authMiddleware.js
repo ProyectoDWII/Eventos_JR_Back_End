@@ -2,13 +2,18 @@ const { verifyToken } = require('../service/tokenService');
 
 const authMiddleware = async (req, res, next) => {
   try {
-    // Obtener el token del header
-    const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    // 1. Obtener el token: primero desde la cookie HttpOnly, luego desde el header Authorization
+    //    La cookie es usada por el frontend (navegador).
+    //    El header es el fallback para Postman y pruebas directas de la API.
+    const token =
+      req.cookies?.token ||
+      (req.headers.authorization?.startsWith('Bearer ')
+        ? req.headers.authorization.split(' ')[1]
+        : null);
+
+    if (!token) {
       return res.status(401).json({ message: 'No se proporcionó token de autenticación' });
     }
-
-    const token = authHeader.split(' ')[1];
 
     // Verificar token
     const decoded = verifyToken(token);
