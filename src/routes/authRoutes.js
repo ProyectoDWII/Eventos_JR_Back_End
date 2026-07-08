@@ -54,12 +54,7 @@ router.post(
         role:  newUser.role,
       });
 
-      // Cookie HttpOnly: el navegador la guarda pero JS nunca puede leerla (protege contra XSS)
-      res.cookie('token', token, {
-        httpOnly: true,
-        secure:   process.env.NODE_ENV === 'production', // Solo HTTPS en producción
-        sameSite: 'strict',                              // Protege contra CSRF
-        maxAge:   7 * 24 * 60 * 60 * 1000,             // 7 días en ms
+
       });
 
       res.status(201).json({
@@ -135,12 +130,7 @@ router.post(
         role:  user.role,
       });
 
-      // Cookie HttpOnly: el navegador la guarda pero JS nunca puede leerla (protege contra XSS)
-      res.cookie('token', token, {
-        httpOnly: true,
-        secure:   process.env.NODE_ENV === 'production',
-        sameSite: 'strict',
-        maxAge:   7 * 24 * 60 * 60 * 1000, // 7 días
+
       });
 
       res.status(200).json({
@@ -161,13 +151,6 @@ router.post(
 );
 
 //! Logout
-// Limpia la cookie HttpOnly del navegador al cerrar sesión
-router.post('/logout', (req, res) => {
-  res.clearCookie('token', {
-    httpOnly: true,
-    secure:   process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
-  });
 
   res.status(200).json({ message: 'Sesión cerrada exitosamente' });
 });
