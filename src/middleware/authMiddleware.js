@@ -12,7 +12,7 @@ const authMiddleware = async (req, res, next) => {
       return res.status(401).json({ message: 'No se proporcionó token de autenticación' });
     }
 
-    // Verificar token
+
     const decoded = verifyToken(token);
 
     // Adjuntar el usuario decodificado a la request
