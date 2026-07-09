@@ -38,42 +38,54 @@
 {"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/login","timestamp":"2026-07-07 17:14:14"}
 {"action":"LOGIN_SUCCESS","detail":"","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"auth","resourceId":"N/A","result":"SUCCESS","role":"client","timestamp":"2026-07-07 17:14:15","type":"AUDIT","userId":"6a4706f172a765cba11495d8"}
 {"error":"Unexpected token '6', \"6a46f404c3\"... is not valid JSON","level":"error","message":"GLOBAL_ERROR","method":"GET","path":"/api/admin/users/6a46f404c33038543b73279b","timestamp":"2026-07-07 17:17:09"}
-{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-08 16:41:40"}
-{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-08 16:41:40","type":"LIFECYCLE"}
-{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-08 16:41:40"}
-{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-08 16:41:50"}
-{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-08 16:41:50","type":"LIFECYCLE"}
-{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-08 16:41:50"}
-{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"GET","path":"/api/admin/users","timestamp":"2026-07-08 16:47:26"}
-{"action":"READ_ALL","detail":"","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"users","resourceId":"N/A","result":"SUCCESS","role":"admin","timestamp":"2026-07-08 16:47:26","type":"AUDIT","userId":"6a4d875781fb2c2cc0ac30e5"}
-{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"GET","path":"/api/admin/users","timestamp":"2026-07-08 16:47:26"}
-{"action":"READ_ALL","detail":"","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"users","resourceId":"N/A","result":"SUCCESS","role":"admin","timestamp":"2026-07-08 16:47:26","type":"AUDIT","userId":"6a4d875781fb2c2cc0ac30e5"}
-{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"GET","path":"/api/admin/users","timestamp":"2026-07-08 16:49:58"}
-{"action":"READ_ALL","detail":"","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"users","resourceId":"N/A","result":"SUCCESS","role":"admin","timestamp":"2026-07-08 16:49:59","type":"AUDIT","userId":"6a4d875781fb2c2cc0ac30e5"}
-{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"GET","path":"/api/admin/users","timestamp":"2026-07-08 16:49:59"}
-{"action":"READ_ALL","detail":"","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"users","resourceId":"N/A","result":"SUCCESS","role":"admin","timestamp":"2026-07-08 16:49:59","type":"AUDIT","userId":"6a4d875781fb2c2cc0ac30e5"}
-{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"GET","path":"/api/admin/users","timestamp":"2026-07-08 16:52:00"}
-{"action":"READ_ALL","detail":"","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"users","resourceId":"N/A","result":"SUCCESS","role":"admin","timestamp":"2026-07-08 16:52:00","type":"AUDIT","userId":"6a4d875781fb2c2cc0ac30e5"}
-{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"GET","path":"/api/admin/users","timestamp":"2026-07-08 16:52:00"}
-{"action":"READ_ALL","detail":"","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"users","resourceId":"N/A","result":"SUCCESS","role":"admin","timestamp":"2026-07-08 16:52:00","type":"AUDIT","userId":"6a4d875781fb2c2cc0ac30e5"}
-{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"GET","path":"/api/admin/users","timestamp":"2026-07-08 16:52:03"}
-{"action":"READ_ALL","detail":"","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"users","resourceId":"N/A","result":"SUCCESS","role":"admin","timestamp":"2026-07-08 16:52:03","type":"AUDIT","userId":"6a4d875781fb2c2cc0ac30e5"}
-{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"GET","path":"/api/admin/users","timestamp":"2026-07-08 16:52:03"}
-{"action":"READ_ALL","detail":"","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"users","resourceId":"N/A","result":"SUCCESS","role":"admin","timestamp":"2026-07-08 16:52:03","type":"AUDIT","userId":"6a4d875781fb2c2cc0ac30e5"}
-{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"GET","path":"/api/admin/users","timestamp":"2026-07-08 16:52:23"}
-{"action":"READ_ALL","detail":"","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"users","resourceId":"N/A","result":"SUCCESS","role":"admin","timestamp":"2026-07-08 16:52:23","type":"AUDIT","userId":"6a4d875781fb2c2cc0ac30e5"}
-{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-08 17:07:36"}
-{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-08 17:07:36","type":"LIFECYCLE"}
-{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-08 17:07:36"}
-{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-08 17:10:01"}
-{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-08 17:10:01","type":"LIFECYCLE"}
-{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-08 17:10:01"}
-{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-08 17:10:19"}
-{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-08 17:10:19","type":"LIFECYCLE"}
-{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-08 17:10:19"}
-{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-08 17:10:27"}
-{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-08 17:10:27","type":"LIFECYCLE"}
-{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-08 17:10:27"}
-{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-08 17:10:42"}
-{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-08 17:10:42","type":"LIFECYCLE"}
-{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-08 17:10:42"}
+{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-08 16:15:24"}
+{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-08 16:15:24","type":"LIFECYCLE"}
+{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-08 16:15:24"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/register","timestamp":"2026-07-08 16:16:37"}
+{"action":"REGISTER","detail":"","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"users","resourceId":"6a4ecc45815bba84d87165d5","result":"SUCCESS","role":"client","timestamp":"2026-07-08 16:16:37","type":"AUDIT","userId":"6a4ecc45815bba84d87165d5"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/register","timestamp":"2026-07-08 16:24:10"}
+{"action":"REGISTER","detail":"","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"users","resourceId":"6a4ece0a815bba84d87165d6","result":"SUCCESS","role":"client","timestamp":"2026-07-08 16:24:10","type":"AUDIT","userId":"6a4ece0a815bba84d87165d6"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/register","timestamp":"2026-07-08 16:25:23"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/register","timestamp":"2026-07-08 16:25:29"}
+{"action":"REGISTER","detail":"","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"users","resourceId":"6a4ece5a815bba84d87165d7","result":"SUCCESS","role":"client","timestamp":"2026-07-08 16:25:30","type":"AUDIT","userId":"6a4ece5a815bba84d87165d7"}
+{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-08 16:26:29"}
+{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-08 16:26:29","type":"LIFECYCLE"}
+{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-08 16:26:29"}
+{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-08 16:26:58"}
+{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-08 16:26:58","type":"LIFECYCLE"}
+{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-08 16:26:58"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/register","timestamp":"2026-07-08 16:27:11"}
+{"action":"REGISTER","detail":"","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"users","resourceId":"6a4ecebf117a006ed5c6ca56","result":"SUCCESS","role":"client","timestamp":"2026-07-08 16:27:11","type":"AUDIT","userId":"6a4ecebf117a006ed5c6ca56"}
+{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-08 16:33:32"}
+{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-08 16:33:32","type":"LIFECYCLE"}
+{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-08 16:33:32"}
+{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-08 16:33:35"}
+{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-08 16:33:35","type":"LIFECYCLE"}
+{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-08 16:33:35"}
+{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-08 16:33:44"}
+{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-08 16:33:44","type":"LIFECYCLE"}
+{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-08 16:33:44"}
+{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-09 12:25:47"}
+{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-09 12:25:47","type":"LIFECYCLE"}
+{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-09 12:25:47"}
+{"error":"Cannot set property query of #<IncomingMessage> which has only a getter","level":"error","message":"GLOBAL_ERROR","method":"POST","path":"/api/auth/register","timestamp":"2026-07-09 12:26:32"}
+{"field":"body","ip":"::1","level":"warn","message":"NOSQL_INJECTION_ATTEMPT","path":"/api/auth/register","timestamp":"2026-07-09 12:29:00","type":"SECURITY"}
+{"error":"Cannot set property query of #<IncomingMessage> which has only a getter","level":"error","message":"GLOBAL_ERROR","method":"POST","path":"/api/auth/register","timestamp":"2026-07-09 12:29:00"}
+{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-09 12:30:12"}
+{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-09 12:30:12","type":"LIFECYCLE"}
+{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-09 12:30:12"}
+{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-09 12:30:39"}
+{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-09 12:30:39","type":"LIFECYCLE"}
+{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-09 12:30:39"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/login","timestamp":"2026-07-09 12:33:06"}
+{"action":"LOGIN_SUCCESS","detail":"","ip":"::1","level":"info","message":"AUDIT_EVENT","resource":"auth","resourceId":"N/A","result":"SUCCESS","role":"client","timestamp":"2026-07-09 12:33:06","type":"AUDIT","userId":"6a4706f172a765cba11495d8"}
+{"ip":"::1","level":"debug","message":"HTTP_REQUEST","method":"POST","path":"/api/auth/login","timestamp":"2026-07-09 12:36:16"}
+{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-09 12:38:17"}
+{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-09 12:38:18","type":"LIFECYCLE"}
+{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-09 12:38:18"}
+{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-09 12:38:21"}
+{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-09 12:38:22","type":"LIFECYCLE"}
+{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-09 12:38:22"}
+{"jwtExpires":"7d","jwtSecret":"Definido","level":"info","message":"SERVER_START","mongodb":"Definido","nodeEnv":"development","port":"3000","timestamp":"2026-07-09 12:38:25"}
+{"level":"info","message":"ANONYMIZATION_JOB_SCHEDULED Job de anonimización de datos programado correctamente","schedule":"0 2 * * * (cada día a las 2:00 AM)","timestamp":"2026-07-09 12:38:25","type":"LIFECYCLE"}
+{"level":"info","message":"SERVER_READY Servidor corriendo en http://localhost:3000","timestamp":"2026-07-09 12:38:25"}

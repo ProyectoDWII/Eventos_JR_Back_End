@@ -54,12 +54,17 @@ router.post(
         role:  newUser.role,
       });
 
-
+      // Cookie HttpOnly
+      res.cookie('token', token, {
+        httpOnly: true,
+        secure:   process.env.NODE_ENV === 'production',
+        sameSite: 'strict',                              
+        maxAge:   7 * 24 * 60 * 60 * 1000,            
       });
 
       res.status(201).json({
         message: 'Usuario registrado exitosamente',
-        token, // Mantenemos el token en la respuesta para compatibilidad con Postman
+        token, 
         user: {
           id:    newUser._id,
           email: newUser.email,
@@ -130,12 +135,17 @@ router.post(
         role:  user.role,
       });
 
-
+      // Cookie HttpOnly
+      res.cookie('token', token, {
+        httpOnly: true,
+        secure:   process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+        maxAge:   7 * 24 * 60 * 60 * 1000, 
       });
 
       res.status(200).json({
         message: 'Login exitoso',
-        token, // Mantenemos el token en la respuesta para compatibilidad con Postman
+        token, 
         user: {
           id:    user._id,
           email: user.email,
@@ -151,6 +161,12 @@ router.post(
 );
 
 //! Logout
+router.post('/logout', (req, res) => {
+  res.clearCookie('token', {
+    httpOnly: true,
+    secure:   process.env.NODE_ENV === 'production',
+    sameSite: 'strict',
+  });
 
   res.status(200).json({ message: 'Sesión cerrada exitosamente' });
 });
