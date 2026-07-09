@@ -1,1 +1,3 @@
 {"error":"Unexpected token '6', \"6a46f404c3\"... is not valid JSON","level":"error","message":"GLOBAL_ERROR","method":"GET","path":"/api/admin/users/6a46f404c33038543b73279b","timestamp":"2026-07-07 17:17:09"}
+{"error":"Cannot set property query of #<IncomingMessage> which has only a getter","level":"error","message":"GLOBAL_ERROR","method":"POST","path":"/api/auth/register","timestamp":"2026-07-09 12:26:32"}
+{"error":"Cannot set property query of #<IncomingMessage> which has only a getter","level":"error","message":"GLOBAL_ERROR","method":"POST","path":"/api/auth/register","timestamp":"2026-07-09 12:29:00"}

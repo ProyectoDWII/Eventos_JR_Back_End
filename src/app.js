@@ -1,7 +1,9 @@
 require('dotenv').config();
-const express      = require('express');
-const cors         = require('cors');
-const cookieParser = require('cookie-parser');
+const express        = require('express');
+const cors           = require('cors');
+const cookieParser   = require('cookie-parser');
+const helmet         = require('helmet');
+const mongoSanitize  = require('express-mongo-sanitize');
 
 const authRoutes  = require('./routes/authRoutes');
 const clientRoutes = require('./routes/clientRoutes');
@@ -11,32 +13,62 @@ const arcoRoutes   = require('./routes/arcoRoutes');
 const authMiddleware  = require('./middleware/authMiddleware');
 const roleMiddleware  = require('./middleware/roleMiddleware');
 const { authLimiter, apiLimiter } = require('./middleware/rateLimiter');
+const { sanitizeInputs } = require('./middleware/validationMiddleware');
 
 const { logger } = require('./utils/logger');
 
 const app = express();
 
 //! MIDDLEWARES GLOBALES
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc:  ["'self'"],
+      scriptSrc:   ["'self'"],
+      styleSrc:    ["'self'", "'unsafe-inline'"],
+      imgSrc:      ["'self'", 'data:'],
+      connectSrc:  ["'self'"],
+      fontSrc:     ["'self'"],
+      objectSrc:   ["'none'"],
+      frameAncestors: ["'none'"], 
+    },
+  },
+  frameguard: { action: 'deny' }, 
+}));
 
-// Rate limiting general para toda la API (protege contra scraping masivo)
 app.use('/api/', apiLimiter);
 
-// CORS: permite cookies desde el frontend (credentials: true es obligatorio para HttpOnly cookies)
 app.use(cors({
   origin: [
-    'http://localhost:5173',   // Vite dev server
+    'http://localhost:5173',
     'http://127.0.0.1:5173',
     'http://localhost:3000',
   ],
-  credentials: true, // Permite el envío de cookies en las peticiones cross-origin
+  credentials: true,
 }));
 
-// Cookie parser: necesario para leer req.cookies en el authMiddleware
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Middleware de logging de peticiones HTTP (sin datos personales)
+app.use((req, res, next) => {
+  if (req.body && typeof req.body === 'object') {
+    const sanitized = mongoSanitize.sanitize(req.body, { replaceWith: '_' });
+    if (JSON.stringify(sanitized) !== JSON.stringify(req.body)) {
+      logger.warn('NOSQL_INJECTION_ATTEMPT', {
+        type: 'SECURITY',
+        ip:   req.ip,
+        path: req.path,
+      });
+    }
+    req.body = sanitized;
+  }
+  next();
+});
+
+app.use(sanitizeInputs);
+
+
 app.use((req, res, next) => {
   logger.debug('HTTP_REQUEST', {
     method: req.method,
@@ -66,7 +98,6 @@ app.use((err, req, res, next) => {
     method:  req.method,
     path:    req.path,
     error:   err.message,
-    // No logueamos err.stack completo en producción para evitar fugas de info
   });
 
   const statusCode = err.statusCode || 500;
