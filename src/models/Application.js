@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const contractSchema = new mongoose.Schema(
+const applicationSchema = new mongoose.Schema(
   {
     client: {
       type: mongoose.Schema.Types.ObjectId,
@@ -30,24 +30,15 @@ const contractSchema = new mongoose.Schema(
       enum: ['boda', 'quinceañera', 'cumpleaños', 'corporativo', 'graduacion', 'otro'],
       required: [true, 'El tipo de evento es obligatorio'],
     },
-    totalPrice: {
-      type: Number,
-      required: [true, 'El precio total es obligatorio'],
-      min: [0, 'El precio no puede ser negativo'],
-    },
-    deposit: {
-      type: Number,
-      default: 0,
+    message: {
+      type: String,
     },
     status: {
       type: String,
-      enum: ['pendiente', 'confirmado', 'en_proceso', 'completado', 'cancelado'],
+      enum: ['pendiente', 'revisando', 'aprobada', 'rechazada'],
       default: 'pendiente',
     },
-    notes: {
-      type: String,
-    },
-    pdfUrl: {
+    adminNotes: {
       type: String,
     },
   },
@@ -56,5 +47,5 @@ const contractSchema = new mongoose.Schema(
   }
 );
 
-const Contract = mongoose.model('Contract', contractSchema);
-module.exports = Contract;
+const Application = mongoose.model('Application', applicationSchema);
+module.exports = Application;
