@@ -1,5 +1,5 @@
 const BaseRepository = require('./baseRepository');
-const Package = require('../models/Package');
+const Package = require('../models/package');
 
 class PackageRepository extends BaseRepository {
   constructor() {
