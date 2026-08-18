@@ -9,8 +9,6 @@ logs/
 *.log
 npm-debug.log*
 
-# Archivos subidos
-uploads/
 
 # Sistema operativo
 .DS_Store
