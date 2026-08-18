@@ -13,7 +13,7 @@ RUN npm ci --only=production
 
 # Copiar el código fuente y carpetas necesarias
 COPY src ./src
-COPY uploads ./uploads
+RUN mkdir -p uploads
 
 # Crear directorio para almacenamiento de logs
 RUN mkdir -p logs
