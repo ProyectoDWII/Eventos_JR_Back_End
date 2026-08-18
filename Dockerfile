@@ -11,12 +11,11 @@ COPY package*.json ./
 # Instalar dependencias de producción de forma limpia
 RUN npm ci --only=production
 
-# Copiar el código fuente y carpetas necesarias
+# Copiar el código fuente
 COPY src ./src
-COPY uploads ./uploads
 
-# Crear directorio para almacenamiento de logs
-RUN mkdir -p logs
+# Crear directorios para almacenamiento de logs y archivos subidos
+RUN mkdir -p logs uploads
 
 # Exponer el puerto en el que escucha la API
 EXPOSE 3000
